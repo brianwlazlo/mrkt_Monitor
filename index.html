@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Ticker API</title>
+</head>
+<body>
+    <header>
+        <h1>App Logo</h1>
+    </header>
+    
+    <main>
+            <div>
+                <form id="search-from">
+                    <div>
+                        <input type="text" name="ticker-symbol-search" id="ticker-symbol-search" require placeholder="ex. AAPL">
+                    </div>
+                    <div>
+                        <button type="submit" id="search-btn" class="search-btn">Search</button>
+                    </div>
+                </form>
+            </div>
+            
+            <section id="results" class="hidden">
+                <div id="price-results" class="price-results">
+                    <h2>Price Results</h2>
+                    <ul>
+                        <li>Open</li>
+                        <li>Close</li>
+                        <li>High</li>
+                        <li>Low</li>
+                        <li>Volume</li>
+                        <li>Range</li>
+                    </ul>
+                </div>
+                <div id="news-results" class="news-results">
+                    <h2>News Headlines</h2>
+                    <ul>
+                        <li>Headline 1</li>
+                        <li>Headline 2</li>
+                        <li>Headline 3</li>
+                    </ul>
+
+
+                </div>
+
+            </section>
+    </main>
+    
+</body>
+</html>
