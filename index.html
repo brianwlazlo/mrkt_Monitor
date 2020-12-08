@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Stock Ticker API</title>
 </head>
 <body>
@@ -24,29 +25,52 @@
             
             <section id="results" class="hidden">
                 <div id="price-results" class="price-results">
-                    <h2>Price Results</h2>
-                    <ul>
-                        <li>Open</li>
-                        <li>Close</li>
-                        <li>High</li>
-                        <li>Low</li>
-                        <li>Volume</li>
-                        <li>Range</li>
-                    </ul>
-                </div>
-                <div id="news-results" class="news-results">
+                    <h2>Ticker Symbol</h2>
+                    <!-- PRICE RESULTS -->
+                    <p>Current Price: $245.50</p>
+                    <a href="https://iexcloud.io">IEX Cloud</a>
+                    <div class="group">
+                        <div class="item">
+                            <button type='button' id="open" class='price-btn'>Open</button>
+                            <button type='button' id="high" class='price-btn'>High</button>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="item">
+                            <button type='button' id="low" class='price-btn'>Low</button>
+                            <button type='button' id="close" class='price-btn'>Close</button>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="item">
+                            <button type='button' id="range" class='price-btn'>Range</button>
+                            <button type='button' id="volume" class='price-btn'>Volume</button>
+                        </div>
+                    </div>
+                    <!-- NEWS HEADLINES-->
+                <div id="news-results" class="news-results hidden">
                     <h2>News Headlines</h2>
                     <ul>
                         <li>Headline 1</li>
                         <li>Headline 2</li>
                         <li>Headline 3</li>
                     </ul>
-
-
                 </div>
-
             </section>
+
+            <!-- PREVIOUS SEARCH SYMBOLS -->
+            <div id="search-history" class="search-history">
+                <p>Previous Search</p>
+                <button type="button" class="history-btn">XYZ Ticker</button>
+                    
+            </div>
     </main>
+
+    <footer>
+        <a href="https://iexcloud.io">Data provided by IEX Cloud</a>
+    </footer>
     
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 </html>
