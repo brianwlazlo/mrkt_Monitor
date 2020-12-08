@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+body {
+  padding:10px 15% 10px 30%;
+}
+
 ul {
   list-style: none;
 }
@@ -15,4 +19,8 @@ ul {
 
 .item button {
   width: 100px;
+}
+
+footer {
+  margin-top: 10px;
 }
