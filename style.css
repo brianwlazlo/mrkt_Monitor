@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding:10px 15% 10px 30%;
+}
+
+ul {
+  list-style: none;
+}
+
+.price-btn {
+  margin-top: 10px;
+  font-size: 22px;
+  
+  border-radius: 5px;
+}
+
+.item button {
+  width: 100px;
+}
+
+footer {
+  margin-top: 10px;
+}
