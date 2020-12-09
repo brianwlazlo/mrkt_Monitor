@@ -27,15 +27,39 @@
   
   // NEWS INFORMATION: 
     // GET.../stock/{symbol}/news/last/{#ofArticlesToReturn}. Elements to use are 'headline', 'source', 'url', 'summary', 'img'
+
+const baseURL = "https://sandbox.iexapis.com/stable/stock"
+const apiTesterToken = "Tpk_0d2324a0af6c4d1d87f32ea3445f31e8"
+
+// get OHLC, volume, dailyRange
+function getTickerPriceInfo (ticker) {
+  let priceDataURL = `${baseURL}/${ticker}/previous?token=${apiTesterToken}`;
+
+  console.log(priceDataURL);
+
+  fetch(priceDataURL)
+    .then(price => price.json())
+    .then(priceJson => console.log(priceJson));
+
+}
+
+function getTickerNews (ticker) {
+  let newsURL = `${baseURL}/${ticker}/news/last/5?token=${apiTesterToken}`;
+  console.log(newsURL);
+  fetch(newsURL)
+    .then(headlines => headlines.json())
+    .then(headlinesJson => console.log(headlinesJson));
   
- 
+}
 
 function watchForm () {
   $('#search-form').submit(event => {
     event.preventDefault();
-    let ticker = $('#ticker-symbol-search').val();
-    
-    console.log(ticker);
+    let ticker = $('#ticker-symbol-search').val().toUpperCase();
+    getTickerNews(ticker);
+    getTickerPriceInfo(ticker);
+
+    console.log(ticker + " captured");
   })
   
 }
