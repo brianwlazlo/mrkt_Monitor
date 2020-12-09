@@ -30,11 +30,26 @@
   
  
 
-console.log("App Loaded!")
+function watchForm () {
+  $('#search-form').submit(event => {
+    event.preventDefault();
+    let ticker = $('#ticker-symbol-search').val();
+    
+    console.log(ticker);
+  })
+  
+}
 
+$(function() {
+  console.log('App Loaded!');
+  watchForm();
+})
+
+/*
 //test api token = Tpk_0d2324a0af6c4d1d87f32ea3445f31e8
 function testAPI () {
   fetch(  )
     .then(response => response.json())
     .then(responseJson => console.log(responseJson))
 }
+*/
