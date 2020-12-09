@@ -2,8 +2,12 @@
   box-sizing: border-box;
 }
 
-body {
-  padding:10px 15% 10px 30%;
+header {
+  text-align: center;
+}
+
+main {
+  text-align: center;
 }
 
 ul {
@@ -17,10 +21,21 @@ ul {
   border-radius: 5px;
 }
 
+.search-btn {
+  margin-top: 10px;
+}
+
 .item button {
   width: 100px;
 }
 
 footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#name-results {
   margin-top: 10px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
 }

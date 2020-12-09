@@ -5,6 +5,7 @@
     //All sandbox endpoints function the same as production, so you will only need to change the base url and token
 
 
+//$('#ticker-symbol-search').val(' ');
 
 const baseURL = "https://sandbox.iexapis.com/stable/stock"
 const apiTesterToken = "Tpk_0d2324a0af6c4d1d87f32ea3445f31e8"
@@ -16,7 +17,8 @@ function getCompanyName (ticker) {
 
   fetch(companyInfo)
     .then(companyInfo => companyInfo.json())
-    .then(companyInfoJson => displayCompanyName(companyInfoJson))
+    .then(companyInfoJson => displayCompanyName(companyInfoJson));
+  
 }
 
 // get OHLC, volume, dailyRange
@@ -41,6 +43,11 @@ function getTickerNews (ticker) {
 //display Company Name
 function displayCompanyName(companyInfoJson) {
   console.log(companyInfoJson.companyName);
+  $('#name-results').empty();
+  let companyNameHTML = `
+    <h2>${companyInfoJson.companyName} (${companyInfoJson.symbol})`
+
+  $('#name-results').append(companyNameHTML);
 }
 
 
