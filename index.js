@@ -35,21 +35,33 @@ const apiTesterToken = "Tpk_0d2324a0af6c4d1d87f32ea3445f31e8"
 function getTickerPriceInfo (ticker) {
   let priceDataURL = `${baseURL}/${ticker}/previous?token=${apiTesterToken}`;
 
-  console.log(priceDataURL);
-
   fetch(priceDataURL)
     .then(price => price.json())
-    .then(priceJson => console.log(priceJson));
+    .then(priceJson => displayPriceData(priceJson));
 
 }
 
+//get recent Headlines 
 function getTickerNews (ticker) {
   let newsURL = `${baseURL}/${ticker}/news/last/5?token=${apiTesterToken}`;
-  console.log(newsURL);
   fetch(newsURL)
     .then(headlines => headlines.json())
-    .then(headlinesJson => console.log(headlinesJson));
+    .then(headlinesJson => displayNewsHeadlines(headlinesJson));
   
+}
+
+//display OHLC, Vol, Range buttons
+function displayPriceData(priceJson) {
+  console.log("High: " + priceJson.high + " Low: " + priceJson.low)
+}
+
+//display news Headlines (with link, summary and pic)
+function displayNewsHeadlines(headlinesJson) {
+
+  for (let i=0; i<headlinesJson.length; i++) {
+    console.log("Headline: " + headlinesJson[i].headline)
+  };
+
 }
 
 function watchForm () {
@@ -59,7 +71,6 @@ function watchForm () {
     getTickerNews(ticker);
     getTickerPriceInfo(ticker);
 
-    console.log(ticker + " captured");
   })
   
 }
@@ -69,11 +80,3 @@ $(function() {
   watchForm();
 })
 
-/*
-//test api token = Tpk_0d2324a0af6c4d1d87f32ea3445f31e8
-function testAPI () {
-  fetch(  )
-    .then(response => response.json())
-    .then(responseJson => console.log(responseJson))
-}
-*/
