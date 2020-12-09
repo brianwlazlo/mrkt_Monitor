@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.price-btn {
+  margin-top: 10px;
+  font-size: 22px;
+  
+  border-radius: 5px;
+}
+
+.search-btn {
+  margin-top: 10px;
+}
+
+.item button {
+  width: 100px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#name-results {
+  margin-top: 10px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+}
