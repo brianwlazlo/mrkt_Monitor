@@ -34,36 +34,39 @@
                     <a href="https://iexcloud.io">IEX Cloud</a>
                     <div class="group">
                         <div class="item">
-                            <button type='button' id="open" class='price-btn'>Open</button>
-                            <button type='button' id="high" class='price-btn'>High</button>
+                            <label>Open</label>
+                            <button type='button' id="open" class='price-btn'></button>
+                            <label>High</label>
+                            <button type='button' id="high" class='price-btn'></button>
                         </div>
                     </div>
                     <div class="group">
                         <div class="item">
-                            <button type='button' id="low" class='price-btn'>Low</button>
-                            <button type='button' id="close" class='price-btn'>Close</button>
+                            <label>Low</label>
+                            <button type='button' id="low" class='price-btn'></button>
+                            <label>Close</label>
+                            <button type='button' id="close" class='price-btn'></button>
                         </div>
                     </div>
                     <div class="group">
                         <div class="item">
-                            <button type='button' id="range" class='price-btn'>Range</button>
-                            <button type='button' id="volume" class='price-btn'>Volume</button>
+                            <label>Intraday Range</label>
+                            <button type='button' id="range" class='price-btn'></button>
+                            <label>Volume</label>
+                            <button type='button' id="volume" class='price-btn'></button>
                         </div>
                     </div>
 
                     <!-- NEWS HEADLINES-->
                     <div id="news-results" class="news-results hidden">
                         <h2>News Headlines</h2>
-                        <ul>
-                            <li>Headline 1</li>
-                            <li>Headline 2</li>
-                            <li>Headline 3</li>
+                        <ul id="news-headlines">
                         </ul>
                     </div>
             </section>
 
             <!-- PREVIOUS SEARCH SYMBOLS -->
-            <div id="search-history" class="search-history">
+            <div id="search-history" class="search-history hidden">
                 <p>Previous Search</p>
                 <button type="button" class="history-btn">XYZ Ticker</button>
                     

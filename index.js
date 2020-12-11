@@ -44,6 +44,7 @@ function getTickerNews (ticker) {
 function displayCompanyName(companyInfoJson) {
   console.log(companyInfoJson.companyName);
   $('#name-results').empty();
+  $('#results').removeClass('hidden');
   let companyNameHTML = `
     <h2>${companyInfoJson.companyName} (${companyInfoJson.symbol})`
 
@@ -54,14 +55,24 @@ function displayCompanyName(companyInfoJson) {
 //display OHLC, Vol, Range buttons
 function displayPriceData(priceJson) {
   //console.log("High: " + priceJson.high + " Low: " + priceJson.low)
+  let range = (priceJson.high - priceJson.low).toFixed(2);
+  $('#open').replaceWith(`<button type='button' id="open" class='price-btn'>${priceJson.open}</button>`);
+  $('#high').replaceWith(`<button type='button' id="open" class='price-btn'>${priceJson.high}</button>`);
+  $('#low').replaceWith(`<button type='button' id="open" class='price-btn'>${priceJson.low}</button>`);
+  $('#close').replaceWith(`<button type='button' id="open" class='price-btn'>${priceJson.close}</button>`);
+  $('#volume').replaceWith(`<button type='button' id="open" class='price-btn'>${priceJson.volume}</button>`);
+  $('#range').replaceWith(`<button type='button' id="open" class='price-btn'>${range}</button>`);
 }
 
 
 //display news Headlines (with link, summary and pic)
 function displayNewsHeadlines(headlinesJson) {
-
+  $('#news-headlines').empty();
+  $('#news-results').removeClass('hidden');
   for (let i=0; i<headlinesJson.length; i++) {
     //console.log("Headline: " + headlinesJson[i].headline)
+    $('#news-headlines').append(`
+          <li>${headlinesJson[i].headline}</li>`);
   };
 
 }
