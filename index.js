@@ -10,10 +10,23 @@
 const baseURL = "https://sandbox.iexapis.com/stable/stock"
 const apiTesterToken = "Tpk_0d2324a0af6c4d1d87f32ea3445f31e8"
 
+/*
+//get current price
+function getLastPrice (ticker) {
+
+  let lastPriceQuote = `https://sandbox.iexapis.com/stable/data-points/${ticker}/QUOTE-LATESTPRICE?token=${apiTesterToken}`
+
+  fetch(lastPriceQuote)
+    .then(lastPriceQuote => lastPriceQuote.json())
+    .then(lastPriceQuoteJson => console.log(lastPriceQuoteJson));
+  
+}
+*/
+
 // get company Name
 function getCompanyName (ticker) {
   let companyInfo = `${baseURL}/${ticker}/company?token=${apiTesterToken}`
-  console.log(companyInfo);
+  
 
   fetch(companyInfo)
     .then(companyInfo => companyInfo.json())
@@ -24,6 +37,7 @@ function getCompanyName (ticker) {
 // get OHLC, volume, dailyRange
 function getTickerPriceInfo (ticker) {
   let priceDataURL = `${baseURL}/${ticker}/previous?token=${apiTesterToken}`;
+  console.log(priceDataURL)
 
   fetch(priceDataURL)
     .then(price => price.json())
@@ -34,6 +48,7 @@ function getTickerPriceInfo (ticker) {
 //get recent Headlines 
 function getTickerNews (ticker) {
   let newsURL = `${baseURL}/${ticker}/news/last/5?token=${apiTesterToken}`;
+  
   fetch(newsURL)
     .then(headlines => headlines.json())
     .then(headlinesJson => displayNewsHeadlines(headlinesJson));
@@ -54,7 +69,6 @@ function displayCompanyName(companyInfoJson) {
 
 //display OHLC, Vol, Range buttons
 function displayPriceData(priceJson) {
-  //console.log("High: " + priceJson.high + " Low: " + priceJson.low)
   let range = (priceJson.high - priceJson.low).toFixed(2);
   $('#open').replaceWith(`<button type='button' id="open" class='price-btn'>${priceJson.open}</button>`);
   $('#high').replaceWith(`<button type='button' id="open" class='price-btn'>${priceJson.high}</button>`);
@@ -70,9 +84,11 @@ function displayNewsHeadlines(headlinesJson) {
   $('#news-headlines').empty();
   $('#news-results').removeClass('hidden');
   for (let i=0; i<headlinesJson.length; i++) {
-    //console.log("Headline: " + headlinesJson[i].headline)
     $('#news-headlines').append(`
-          <li>${headlinesJson[i].headline}</li>`);
+          <li>
+            <h3><a href="${headlinesJson[i].url}" target="_blank">${headlinesJson[i].headline}</a></h3>
+            <p>${headlinesJson[i].summary}</p>
+          </li>`);
   };
 
 }
@@ -84,6 +100,7 @@ function watchForm () {
     getTickerNews(ticker);
     getTickerPriceInfo(ticker);
     getCompanyName(ticker);
+    //getLastPrice(ticker);
 
   })
   
