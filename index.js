@@ -93,6 +93,11 @@ function displayNewsHeadlines(headlinesJson) {
 
 }
 
+function displaySearchHistory (ticker) {
+  $('#search-history').removeClass('hidden');
+  $('#search-history-list').append(`<button type="button" id="${ticker} class="history-btn">${ticker}</button>`)
+}
+
 function watchForm () {
   $('#search-form').submit(event => {
     event.preventDefault();
@@ -101,6 +106,7 @@ function watchForm () {
     getTickerPriceInfo(ticker);
     getCompanyName(ticker);
     //getLastPrice(ticker);
+    displaySearchHistory(ticker);
 
   })
   
