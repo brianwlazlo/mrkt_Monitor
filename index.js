@@ -10,9 +10,9 @@
 const baseURL = "https://sandbox.iexapis.com/stable/stock"
 const apiTesterToken = "Tpk_0d2324a0af6c4d1d87f32ea3445f31e8"
 
-/*
+
 //get current price
-function getLastPrice (ticker) {
+function getCurrentPrice (ticker) {
 
   let lastPriceQuote = `https://sandbox.iexapis.com/stable/data-points/${ticker}/QUOTE-LATESTPRICE?token=${apiTesterToken}`
 
@@ -21,7 +21,7 @@ function getLastPrice (ticker) {
     .then(lastPriceQuoteJson => console.log(lastPriceQuoteJson));
   
 }
-*/
+
 
 // get company Name
 function getCompanyName (ticker) {
@@ -48,6 +48,7 @@ function getTickerPriceInfo (ticker) {
 //get recent Headlines 
 function getTickerNews (ticker) {
   let newsURL = `${baseURL}/${ticker}/news/last/5?token=${apiTesterToken}`;
+  console.log(newsURL);
   
   fetch(newsURL)
     .then(headlines => headlines.json())
@@ -95,7 +96,7 @@ function displayNewsHeadlines(headlinesJson) {
 
 function displaySearchHistory (ticker) {
   $('#search-history').removeClass('hidden');
-  $('#search-history-list').append(`<button type="button" id="${ticker} class="history-btn">${ticker}</button>`)
+  $('#search-history-list').append(`<button type="button" id="${ticker}" class="history-btn">${ticker}</button>`)
 }
 
 function watchForm () {
@@ -105,7 +106,7 @@ function watchForm () {
     getTickerNews(ticker);
     getTickerPriceInfo(ticker);
     getCompanyName(ticker);
-    //getLastPrice(ticker);
+    //getCurrentPrice(ticker);
     displaySearchHistory(ticker);
 
   })
