@@ -23,58 +23,77 @@
                 </form>
             </div>
             
-            <section id="results" class="hidden">
-                <div id='name-results' class='name-results'>
-                    <!-- COMPNAY NAME -->
+            <!-- ERROR MESSAGE -->
+            <div id='error-message' class='err-message-hidden'>
+                <p id="js-error-message" class="error-message"></p>
+            </div>
+
+
+            <section id="results" class="results hidden">
+                
+                <!-- COMPANY NAME and TICKER -->
+                <div class='name-box'>
+                    <h2 id='company-name' class='company-name'></h2>
                 </div>
 
-                <div id="price-results" class="price-results"></div>
-                    <!-- PRICE RESULTS -->
-                    <p>Current Price: $245.50</p>
-                    <a href="https://iexcloud.io">IEX Cloud</a>
-                    <div class="price-section">
-                    <div class="group">
-                        <div class="item">
-                            <label>Open</label>
-                            <button type='button' id="open" class='price-btn'></button>
-                            <label>High</label>
-                            <button type='button' id="high" class='price-btn'></button>
-                        </div>
+                 <!-- PRICE RESULTS -->
+                <section id='price-results-wrapper' class='price-results-wrapper'>
+                
+                    <div class='price-box'>
+                        <h2>Last Price</h2>
+                        <h3 id='js-last-price'></h3>
                     </div>
-                    <div class="group">
-                        <div class="item">
-                            <label>Low</label>
-                            <button type='button' id="low" class='price-btn'></button>
-                            <label>Close</label>
-                            <button type='button' id="close" class='price-btn'></button>
-                        </div>
+            
+                    <div class='price-box'>
+                        <h2>Previous Close</h2>
+                        <h3 id="js-prev-close"></h3>
                     </div>
-                    <div class="group">
-                        <div class="item">
-                            <label>Intraday Range</label>
-                            <button type='button' id="range" class='price-btn'></button>
-                            <label>Volume</label>
-                            <button type='button' id="volume" class='price-btn'></button>
-                        </div>
+
+                    <div class='price-box'>
+                        <h2>Open</h2>
+                        <h3 id="js-open"></h3>
                     </div>
+
+                    <div class='price-box'>
+                        <h2>Percent Change</h2>
+                        <h3 id="js-percent-change"></h3>
                     </div>
+
+
+                    <div class='price-box'>
+                        <h2>High</h2>
+                        <h3 id="js-high"></h3>
+                    </div>
+
+                    <div class='price-box'>
+                        <h2>Low</h2>
+                        <h3 id="js-low"></h3>
+                    </div>
+
+                    <div class='price-box'>
+                        <h2>Volume</h2>
+                        <h3 id="js-volume"></h3>
+                    </div>
+
+                    <div class='price-box'>
+                        <h2>Intraday Range</h2>
+                        <h3 id="js-range"></h3>
+                    </div>
+
+                </section>
 
                     <!-- NEWS HEADLINES-->
-                    <div id="news-results" class="news-results hidden">
-                        <h2>Latest Headlines</h2>
-                        <ul id="news-headlines">
-                        </ul>
+                    <div class='news-wrapper'>
+                        <div id="news-results" class="news-results">
+                            <h2>Latest Headlines</h2>
+                            <div id="js-news-results">
+                            </div>
+                        </div>
                     </div>
+
+                   
             </section>
 
-            <!-- PREVIOUS SEARCH SYMBOLS -->
-            <div id="search-history" class="search-history hidden">
-                <p>Previous Search</p>
-                <div id="search-history-list">
-                    
-                </div>
-                    
-            </div>
     </main>
 
     <footer>

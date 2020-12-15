@@ -3,33 +3,12 @@
 }
 
 header {
-  text-align: center;
+  padding-left: 10%;
 }
 
 main {
-  text-align: center;
-  padding-left: 20%;
-  padding-right: 20%;
-}
-
-ul {
-  list-style: none;
-  text-align: left;
-}
-
-.price-btn {
-  margin-top: 10px;
-  font-size: 22px;
-  width: 100%;
-  border-radius: 5px;
-}
-
-.search-btn {
-  margin-top: 10px;
-}
-
-.item button {
-  width: 150px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 footer {
@@ -37,13 +16,28 @@ footer {
   text-align: center;
 }
 
-#name-results {
+h2 { }
+h3 { }
+p { }
+
+
+.search-btn {
+  margin-top: 10px;
+}
+
+
+.name-box {
+  text-align: center;
   margin-top: 10px;
   padding: 10px 20px 10px 20px;
-  border-radius: 5px;
+  border-bottom: 2px solid black;
 }
 
 .hidden {
+  display: none;
+}
+
+.err-message-hidden {
   display: none;
 }
 
@@ -52,25 +46,36 @@ footer {
   border-bottom: 2px solid black;
 }
 
-#results {
+.price-results-wrapper {
   padding-bottom: 20px;
-  border-bottom: 2px solid black;
+  padding-right: 10px;
+  border-right: 2px solid black;
   
 }
 
-.price-section {
-  padding-bottom: 40px;
-  border-bottom: 2px solid black;
-}
-
-.search-history {
-  background-color: lightslategray;
-  padding: 10px 0 20px 0;
-  
-}
-
-.history-btn {
-  margin-right: 5px;
+.price-box {
+  margin: 5px 0px 5px 0px;
   padding: 10px 20px 10px 20px;
+  border: 2px solid gray;
+  text-align: center;
+}
+
+.article-details {
+  text-align: center;
+  border: 2px solid blue;
+  margin: 15px 0px 15px 0px;
+  padding: 20px 20px 30px 20px;
+}
+
+.news-summary {
+  margin-bottom: 40px;
+  
+}
+
+.go-to-btn {
+  text-decoration: none;
+  padding: 10px 15px 10px 15px;
+  background-color: rgb(46, 46, 240);
+  color: white;
   border-radius: 5px;
 }
