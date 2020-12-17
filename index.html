@@ -7,15 +7,17 @@
     <title>Stock Ticker API</title>
 </head>
 <body>
-    <header>
-        <h1>App Logo</h1>
-    </header>
-    
+    <div id="logo">
+        <header>
+            <h1>App Logo</h1>
+        </header>
+    </div>
+
     <main>
             <div>
-                <form id="search-form">
+                <form id="search-form" class="search-form">
                     <div>
-                        <input type="text" name="ticker-symbol-search" id="ticker-symbol-search" require placeholder="ex. AAPL">
+                        <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. AAPL">
                     </div>
                     <div>
                         <button type="submit" id="search-btn" class="search-btn">Search</button>
@@ -36,68 +38,73 @@
                     <h2 id='company-name' class='company-name'></h2>
                 </div>
 
-                 <!-- PRICE RESULTS -->
-                <section id='price-results-wrapper' class='price-results-wrapper'>
+                <div class='results-group'>
+                    <!-- PRICE RESULTS -->
+                    <div id='price-results-wrapper' class='price-results-wrapper'>
+                        
+                        <div class='last-price'>
+                            <h2>Last Price:</h2>
+                            <h2 id='js-last-price'></h2>
+                        </div>
+                        
+                        <div class='price-data-group'>
+                            <div class="price-row">
+                                <p class="label">Previous Close:</p>
+                                <p id="js-prev-close" class='price'></p>
+                            </div>
+                        
+                            <div class='price-row'>
+                                <p class = 'label'>Open:</p>
+                                <p id="js-open"></p>
+                            </div>
+                        </div>
                 
-                    <div class='price-box'>
-                        <h2>Last Price</h2>
-                        <h3 id='js-last-price'></h3>
-                    </div>
-            
-                    <div class='price-box'>
-                        <h2>Previous Close</h2>
-                        <h3 id="js-prev-close"></h3>
-                    </div>
-
-                    <div class='price-box'>
-                        <h2>Open</h2>
-                        <h3 id="js-open"></h3>
-                    </div>
-
-                    <div class='price-box'>
-                        <h2>Percent Change</h2>
-                        <h3 id="js-percent-change"></h3>
-                    </div>
-
-
-                    <div class='price-box'>
-                        <h2>High</h2>
-                        <h3 id="js-high"></h3>
-                    </div>
-
-                    <div class='price-box'>
-                        <h2>Low</h2>
-                        <h3 id="js-low"></h3>
-                    </div>
-
-                    <div class='price-box'>
-                        <h2>Volume</h2>
-                        <h3 id="js-volume"></h3>
-                    </div>
-
-                    <div class='price-box'>
-                        <h2>Intraday Range</h2>
-                        <h3 id="js-range"></h3>
-                    </div>
-
-                </section>
-
-                    <!-- NEWS HEADLINES-->
-                    <div class='news-wrapper'>
-                        <div id="news-results" class="news-results">
-                            <h2>Latest Headlines</h2>
-                            <div id="js-news-results">
+                        <div class='price-data-group'>
+                            <div class="price-row">
+                                <p class = 'label'>Percent Change</p>
+                                <p id="js-percent-change"></p>
+                            </div>
+                       
+                            <div class='price-row'>
+                                <p class = 'label'>High</p>
+                                <p id="js-high"></p>
+                            </div>
+                        
+                            <div class='price-row'>
+                                <p class = 'label'>Low</p>
+                                <p id="js-low"></p>
+                            </div>
+                        </div>
+                    
+                        <div class='price-data-group'>
+                            <div class='price-row'>
+                                <p class = 'label'>Intraday Range</p>
+                                <p id="js-range"></p>
+                            </div>
+                            
+                            <div class='price-row'>
+                                <p class = 'label'>Volume</p>
+                                <p id="js-volume"></p>
                             </div>
                         </div>
                     </div>
 
-                   
+                    <!-- NEWS HEADLINES-->
+                    <div class='news-wrapper'>
+                        <h2 class='latest-headlines'>Latest Headlines</h2>
+                        <div id='js-news-results' class="news-results">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </section>
 
     </main>
 
     <footer>
-        <a href="https://iexcloud.io">Data provided by IEX Cloud</a>
+        copywrite
     </footer>
     
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

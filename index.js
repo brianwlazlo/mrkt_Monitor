@@ -1,5 +1,5 @@
 
-//$('#ticker-symbol-search').val(' ');
+
 
 //IEX api: used for company full name and news headlines 
 const iexBaseURL = "https://sandbox.iexapis.com/stable/stock"
@@ -42,7 +42,7 @@ function getCompanyName (ticker) {
 
 //get recent Headlines (IEX API)
 function getTickerNews (ticker) {
-  let newsURL = `${iexBaseURL}/${ticker}/news/last/5?token=${iexApiTesterToken}`;
+  let newsURL = `${iexBaseURL}/${ticker}/news/last/8?token=${iexApiTesterToken}`;
   console.log(newsURL);
   
   fetch(newsURL)
@@ -89,8 +89,9 @@ function displayPriceData(priceDataJson) {
   $('#js-volume').html(`${formattedVolume}`);
   $('#js-range').html(`${range}`);
 
-}
+  $('#symbol-search').val(' ');
 
+}
 
 //display news Headlines (with link, summary)
 function displayNewsHeadlines(headlinesJson) {
@@ -98,23 +99,29 @@ function displayNewsHeadlines(headlinesJson) {
   $('#news-results').removeClass('hidden');
   for (let i=0; i<headlinesJson.length; i++) {
     $('#js-news-results').append(`
+        <div class='article'>  
           <div class='article-details'>
-            <h2 class='headline'>${headlinesJson[i].headline}</a></h2>
-            <p class='news-summary'>${headlinesJson[i].summary}</p>
-            <a href="${headlinesJson[i].url}" target="_blank" class='go-to-btn'>Go To Article</a>
-          </div>`);
+            <h2 class='headline'>${headlinesJson[i].headline}</h2>
+            <p class='news-source'>${headlinesJson[i].source}</p>
+            <a href="${headlinesJson[i].url}" target="_blank" class='go-to-btn'>Read More</a>
+          </div>
+        </div>`);
   };
-
 }
 
+function removeStartScreen () {
+  $('#search-form').addClass('hidden');
+  $('#logo').addClass('hidden');
+}
 
 function watchForm () {
   $('#search-form').submit(event => {
     event.preventDefault();
-    let ticker = $('#ticker-symbol-search').val().toUpperCase();
+    let ticker = $('#symbol-search').val().toUpperCase();
     getTickerNews(ticker);
     getPriceData(ticker);
     getCompanyName(ticker);
+    removeStartScreen();
     
   })
   
