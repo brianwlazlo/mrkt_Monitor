@@ -23,7 +23,7 @@ function getPriceData (ticker) {
 
   fetch(url, options)
     .then(priceData => priceData.json())
-    .then(priceDataJson => handleBadTicker(priceDataJson))
+    .then(priceDataJson => validateTicker(priceDataJson))
     .catch(err => {console.error(err);});
 
 };
@@ -52,22 +52,29 @@ function getTickerNews (ticker) {
   
 }
 
-function handleBadTicker(priceDataJson) {
-  if (priceDataJson['Global Quote']['05. price'] === undefined) {
-    $('#error-message').removeClass('err-message-hidden');
-    $('#results').addClass('hidden');
-    $('#js-error-message').html('Valid ticker symbols only');
+function validateTicker(priceDataJson) {
+  $('#nav-bar').removeClass('hidden');
+  $('#start-screen').replaceWith('');
+  if (priceDataJson['Global Quote']['08. previous close'] === undefined) {
+    displayErrorMessage();
   } else {
     displayPriceData(priceDataJson);
-    $('#error-message').addClass('err-message-hidden');
+    $('#error-message').addClass('hidden');
     $('#results').removeClass('hidden');
   }
 }
 
+
+function displayErrorMessage () {
+  $('#error-message').removeClass('hidden');
+  $('#results').addClass('hidden');
+  $('#js-error-message').html('Valid ticker symbols only');
+  $('#symbol-search').val('');
+}
+
 //display Company Name
 function displayCompanyName(companyInfoJson) {
-  $('#results').removeClass('hidden');
-
+  
   $('#company-name').html(`${companyInfoJson.companyName} (${companyInfoJson.symbol})`);
 }
 
@@ -89,14 +96,14 @@ function displayPriceData(priceDataJson) {
   $('#js-volume').html(`${formattedVolume}`);
   $('#js-range').html(`${range}`);
 
-  $('#symbol-search').val(' ');
+  $('#symbol-search').val('');
 
 }
 
-//display news Headlines (with link, summary)
+//display news Headlines (with source and link)
 function displayNewsHeadlines(headlinesJson) {
-  $('#js-news-headlines').empty();
-  $('#news-results').removeClass('hidden');
+  $('#js-news-results').empty();
+  
   for (let i=0; i<headlinesJson.length; i++) {
     $('#js-news-results').append(`
         <div class='article'>  
@@ -109,25 +116,21 @@ function displayNewsHeadlines(headlinesJson) {
   };
 }
 
-function removeStartScreen () {
-  $('#search-form').addClass('hidden');
-  $('#logo').addClass('hidden');
-}
 
-function watchForm () {
+function watchForm() {
   $('#search-form').submit(event => {
     event.preventDefault();
     let ticker = $('#symbol-search').val().toUpperCase();
     getTickerNews(ticker);
     getPriceData(ticker);
     getCompanyName(ticker);
-    removeStartScreen();
-    
   })
   
 };
 
+
 $(function() {
   console.log('App Loaded!');
   watchForm();
+  
 });
