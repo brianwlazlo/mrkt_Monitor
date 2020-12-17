@@ -7,30 +7,40 @@
     <title>Stock Ticker API</title>
 </head>
 <body>
-    <div id="logo">
-        <header>
-            <h1>App Logo</h1>
-        </header>
-    </div>
 
     <main>
-            <div>
-                <form id="search-form" class="search-form">
-                    <div>
-                        <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. AAPL">
-                    </div>
-                    <div>
-                        <button type="submit" id="search-btn" class="search-btn">Search</button>
-                    </div>
-                </form>
-            </div>
-            
+        
+        <div id="start-screen" class="start-screen" >
+            <a href='' alt='' class='logo'>App Logo</a>
+            <form id="search-form" class="search-form">
+                <div>
+                    <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. AAPL">
+                </div>
+                <div>
+                    <button type="submit" id="search-btn" class="search-btn">Search</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="nav-bar" class='nav-bar hidden'>
+            <a href='' alt='' class='logo'>App Logo</a>
+
+            <form id="search-form" class="search-form">
+
+                <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. AAPL">
+
+                <button type="submit" id="search-btn" class="search-btn">Search</button>
+
+            </form>
+        </div>
+    
+    
             <!-- ERROR MESSAGE -->
-            <div id='error-message' class='err-message-hidden'>
+            <div id='error-message' class='err-message hidden'>
                 <p id="js-error-message" class="error-message"></p>
             </div>
 
-
+            <!-- RESULTS -->
             <section id="results" class="results hidden">
                 
                 <!-- COMPANY NAME and TICKER -->
@@ -38,8 +48,9 @@
                     <h2 id='company-name' class='company-name'></h2>
                 </div>
 
+                <!-- PRICE & NEWS RESULTS -->
                 <div class='results-group'>
-                    <!-- PRICE RESULTS -->
+                    
                     <div id='price-results-wrapper' class='price-results-wrapper'>
                         
                         <div class='last-price'>
@@ -104,7 +115,7 @@
     </main>
 
     <footer>
-        copywrite
+        
     </footer>
     
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
