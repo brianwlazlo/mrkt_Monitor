@@ -2,13 +2,6 @@
   box-sizing: border-box;
 }
 
-/*
-header {
-  text-align: center;
-  margin-top: 10%;
-}
-*/
-
 main {
   margin: 0;
   padding-left: 3%;
@@ -20,6 +13,8 @@ footer {
   margin-top: 5%;
 }
 
+/* ---- TEXT FORMATTING ----- */
+
 h1 { }
 h2 { }
 p { }
@@ -28,54 +23,7 @@ a {
   text-decoration: none;
 }
 
-.start-screen {
-  text-align: center;
-  margin-top: 10%;
-}
-
-.start-screen .search-form {
-  margin-top: 25px;
-  text-align: center;
-}
-
-.start-screen .symbol-search {
-  width: 160px;
-  height: 50px;
-}
-
-.start-screen .search-btn {
-  margin-top: 15px;
-  width: 160px;
-  height: 50px;
-}
-
-.nav-bar {
-  margin: 0;
-  padding: 20px 10px 20px 10px;
-  background-color: gray;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-
-.nav-bar .symbol-search {
-  width: 160px;
-  height: 25px;
-}
-
-.nav-bar .search-btn {
-  margin-left: 15px;
-  width: 80px;
-  height: 25px;
-}
-
-.name-box {
-  text-align: center;
-  margin-top: 10px;
-  padding: 10px 20px 10px 20px;
-  border-bottom: 2px solid black;
-}
+/* --- MODIFIERS ---- */
 
 .hidden {
   display: none;
@@ -85,6 +33,57 @@ a {
   display: none;
 }
 
+/* ----- Start Screen Styling ---*/
+.form-container {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.search-form {
+  margin-top: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.symbol-search {
+  width: 160px;
+  height: 50px;
+  align-self: center;
+}
+
+.search-btn {
+  margin-top: 15px;
+  width: 160px;
+  height: 50px;
+  align-self: center;
+}
+
+/*---- Nav Bar Styling ----*/
+
+.nav-bar {
+  margin: 0;
+  text-align: center;
+  padding: 5px 10px 25px 10px;
+  background-color: rgb(40, 126, 206);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-symbol-search {
+  width: 160px;
+  height: 30px;
+  align-self: center;
+}
+
+.nav-search-btn {
+  margin-left: 15px;
+  width: 80px;
+  height: 25px;
+  align-self: center;
+}
+
+/* --- INVALID TICKER BANNER ----*/
 #error-message {
   margin-top: 20px;
   padding: 10px;
@@ -93,17 +92,18 @@ a {
   background-color: rgb(204, 73, 73);
 }
 
-.results-group {
-  display: flex;
-  flex-direction: row;
+/*---- FULL COMPANY NAME --- */
+.name-box {
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 2px solid black;
 }
 
+/* --- PRICE DATA FORMATTING --- */
 .price-results-wrapper {
-  border-right: 1px solid black;
   margin: 10px 0 10px 0;
   padding-bottom: 20px;
-  padding-right: 20px;
-  flex: 1;  
 }
 
 .last-price {
@@ -114,24 +114,16 @@ a {
   margin-right: 5%;
 }
 
-.price-data-group {
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  padding: 5% 5% 0 5%;
-}
-
 .price-row {
-  flex: 1;
+  text-align: center;
   border: 1px solid gray;
 }
 
-.news-wrapper {
-  padding: 10px 0 0 3%;
-  /*width: 50%;*/
-  flex: 1.5;
-  /*height: 600px;*/
-  /*overflow: auto;*/
+/* --- NEWS HEADLINES FORMATTING ---*/
+
+.latest-headlines {
+  text-align: center;
+  padding-bottom: 10px;
 }
 
 .news-results {
@@ -141,7 +133,6 @@ a {
   grid-auto-flow: dense;
   margin: 0;
   overflow-y: scroll;
-
 }
 
 .article-details {
@@ -180,15 +171,51 @@ a {
 
 
 
-/* ----MEDIA QUERY ---*/
+/* ----MEDIA QUERY --------------------------------*/
 
-@media (max-width: 680px) {
-  .news-results {
+
+@media all and (min-width: 600px) {
+
+  .nav-bar {
+    margin: 0;
+    padding: 10px 10px 10px 10px;
+    background-color: rgb(40, 126, 206);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
+  
+  .results-group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .price-results-wrapper {
+    border-right: 1px solid black;
+    padding-right: 20px;
+    flex: 1; 
+  } 
+
+  .price-data-group {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    padding: 5% 5% 0 5%;
+  }
+
+  .price-row {
+    flex: 1;
+    border: 1px solid gray;
+  }
+
+  .news-wrapper {
+    padding: 10px 0 0 30px;
+    flex: 1.5;
   }
 
   .article-details {
-    margin-bottom: 15px;
+      margin-bottom: 15px;
   }
+  
 }

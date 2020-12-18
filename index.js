@@ -24,6 +24,7 @@ function getPriceData (ticker) {
   fetch(url, options)
     .then(priceData => priceData.json())
     .then(priceDataJson => validateTicker(priceDataJson))
+    .catch(err => alert(`Something went wrong. Please try again later. Error Message: ${err}`))
     .catch(err => {console.error(err);});
 
 };
@@ -72,9 +73,15 @@ function displayErrorMessage () {
   $('#symbol-search').val('');
 }
 
+function moveSearchBar () {
+  $('#form-container').removeClass('form-container').addClass('nav-bar');
+  $('#search-form').removeClass('search-form').addClass('nav-search-form');
+  $('#symbol-search').removeClass('symbol-search').addClass('nav-symbol-search');
+  $('#search-btn').removeClass('symbol-search').addClass('nav-symbol-search');
+}
+
 //display Company Name
 function displayCompanyName(companyInfoJson) {
-  
   $('#company-name').html(`${companyInfoJson.companyName} (${companyInfoJson.symbol})`);
 }
 
@@ -102,6 +109,9 @@ function displayPriceData(priceDataJson) {
 
 //display news Headlines (with source and link)
 function displayNewsHeadlines(headlinesJson) {
+  moveSearchBar();
+
+  $('#results').removeClass('hidden');
   $('#js-news-results').empty();
   
   for (let i=0; i<headlinesJson.length; i++) {
