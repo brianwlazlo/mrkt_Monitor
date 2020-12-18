@@ -9,31 +9,16 @@
 <body>
 
     <main>
-        
-        <div id="start-screen" class="start-screen" >
-            <a href='' alt='' class='logo'>App Logo</a>
+        <!-- SEARCH FORM -->
+        <div id="form-container" class="form-container" >
+            <h2>App Logo</h2>
+            
             <form id="search-form" class="search-form">
-                <div>
                     <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. AAPL">
-                </div>
-                <div>
+            
                     <button type="submit" id="search-btn" class="search-btn">Search</button>
-                </div>
             </form>
         </div>
-
-        <div id="nav-bar" class='nav-bar hidden'>
-            <a href='' alt='' class='logo'>App Logo</a>
-
-            <form id="search-form" class="search-form">
-
-                <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. AAPL">
-
-                <button type="submit" id="search-btn" class="search-btn">Search</button>
-
-            </form>
-        </div>
-    
     
             <!-- ERROR MESSAGE -->
             <div id='error-message' class='err-message hidden'>
@@ -43,27 +28,23 @@
             <!-- RESULTS -->
             <section id="results" class="results hidden">
                 
-                <!-- COMPANY NAME and TICKER -->
                 <div class='name-box'>
                     <h2 id='company-name' class='company-name'></h2>
                 </div>
 
-                <!-- PRICE & NEWS RESULTS -->
                 <div class='results-group'>
-                    
                     <div id='price-results-wrapper' class='price-results-wrapper'>
                         
                         <div class='last-price'>
                             <h2>Last Price:</h2>
                             <h2 id='js-last-price'></h2>
                         </div>
-                        
+
                         <div class='price-data-group'>
                             <div class="price-row">
                                 <p class="label">Previous Close:</p>
                                 <p id="js-prev-close" class='price'></p>
                             </div>
-                        
                             <div class='price-row'>
                                 <p class = 'label'>Open:</p>
                                 <p id="js-open"></p>
@@ -75,12 +56,10 @@
                                 <p class = 'label'>Percent Change</p>
                                 <p id="js-percent-change"></p>
                             </div>
-                       
                             <div class='price-row'>
                                 <p class = 'label'>High</p>
                                 <p id="js-high"></p>
                             </div>
-                        
                             <div class='price-row'>
                                 <p class = 'label'>Low</p>
                                 <p id="js-low"></p>
@@ -92,7 +71,6 @@
                                 <p class = 'label'>Intraday Range</p>
                                 <p id="js-range"></p>
                             </div>
-                            
                             <div class='price-row'>
                                 <p class = 'label'>Volume</p>
                                 <p id="js-volume"></p>
