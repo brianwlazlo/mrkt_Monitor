@@ -10,7 +10,24 @@ API Capstone project that allows a user to enter a ticker symbol and returns the
   <li>jQuery</li>
 </ul>
 
-![alt text](https://github.com/brianwlazlo/Stock-Ticker-API/blob/main/screen-shots/two-lines/Start%20Screen%20-%20Mobile.png)
+<h1> MOBILE LAYOUT </h1>
+
+![alt text](https://github.com/brianwlazlo/mrkt_Monitor/blob/main/ScreenShots/StartScreen-Mobile.png)
+
+![alt text](https://github.com/brianwlazlo/mrkt_Monitor/blob/main/ScreenShots/Results-Mobile-Pg1.png)
+
+![alt text](https://github.com/brianwlazlo/mrkt_Monitor/blob/main/ScreenShots/Results-Mobile-Pg2.png)
+
+![alt text](https://github.com/brianwlazlo/mrkt_Monitor/blob/main/ScreenShots/Results-Mobile-Pg3.png)
+
+
+<h1> DESKTOP LAYOUT </h1>
+
+![alt text](https://github.com/brianwlazlo/mrkt_Monitor/blob/main/ScreenShots/StartScreen-Desktop.png)
+
+![alt text](https://github.com/brianwlazlo/mrkt_Monitor/blob/main/ScreenShots/Resutls-Desktop-Pg1.png)
+
+![alt text](https://github.com/brianwlazlo/mrkt_Monitor/blob/main/ScreenShots/Results-Desktop-Pg2.png)
 
 
 
