@@ -3,7 +3,8 @@ API Capstone project that allows a user to enter a ticker symbol and returns the
 
 <a href="https://brianwlazlo.github.io/mrkt_Monitor/">https://brianwlazlo.github.io/mrkt_Monitor/</a>
 
-<ul>Technologies Used
+Technologies Used:
+<ul>
   <li>HTML</li>
   <li>CSS</li>
   <li>JavaScript</li>
