@@ -24,6 +24,7 @@ function getPriceData (ticker) {
   fetch(url, options)
     .then(priceData => priceData.json())
     .then(priceDataJson => validateTicker(priceDataJson))
+    .catch(err => alert(`Something went wrong. Please try again later. Error Message: ${err}`))
     .catch(err => {console.error(err);});
 
 };
@@ -72,27 +73,76 @@ function displayErrorMessage () {
   $('#symbol-search').val('');
 }
 
+function moveSearchBar () {
+  $('#form-container').removeClass('form-container').addClass('nav-bar');
+  $('#search-form').removeClass('search-form').addClass('nav-search-form');
+  $('#symbol-search').removeClass('symbol-search').addClass('nav-symbol-search');
+  $('#search-btn').removeClass('symbol-search').addClass('nav-symbol-search');
+}
+
 //display Company Name
 function displayCompanyName(companyInfoJson) {
-  
   $('#company-name').html(`${companyInfoJson.companyName} (${companyInfoJson.symbol})`);
 }
 
+function stylePriceBorder(priceDataJson) {
+  if (priceDataJson['Global Quote']['02. open'] > priceDataJson['Global Quote']['08. previous close']) {
+    $('#js-open').parent().removeClass('border-gray').attr('class', 'border-green');
+    } else {
+      $('#js-open').parent().removeClass('border-gray').attr('class', 'border-red');
+  };
+
+  if (priceDataJson['Global Quote']['09. change'] < 0) {
+    $('#js-percent-change').parent().removeClass('border-gray').attr('class','border-red');
+    } else {
+      $('#js-percent-change').parent().removeClass('border-gray').attr('class', 'border-green');
+  };
+}
+
+function stylePriceColor(priceDataJson) {
+  if (priceDataJson['Global Quote']['02. open'] > priceDataJson['Global Quote']['08. previous close']) {
+    $('#js-open').attr('class', 'text-green');
+    } else {
+      $('#js-open').attr('class', 'text-red');
+  };
+
+  if (priceDataJson['Global Quote']['09. change'] < 0) {
+    $('#js-percent-change').attr('class','text-red');
+    } else {
+      $('#js-percent-change').attr('class', 'text-green');
+  };
+}
 
 //display Last Price, OHL, Vol, Range
 function displayPriceData(priceDataJson) {
   console.log(priceDataJson);
 
-  let volume = priceDataJson['Global Quote']['06. volume']
-  let formattedVolume = new Intl.NumberFormat().format(volume);
-  let range = (priceDataJson['Global Quote']['03. high'] - priceDataJson['Global Quote']['04. low']).toFixed(2);
+  let volume = priceDataJson['Global Quote']['06. volume'];
+  let formattedVolume = new Intl.NumberFormat().format(volume)
 
-  $('#js-last-price').html(`${priceDataJson['Global Quote']['05. price']}`);
-  $('#js-prev-close').html(`${priceDataJson['Global Quote']['08. previous close']}`);
-  $('#js-open').html(`${priceDataJson['Global Quote']['02. open']}`);
-  $('#js-percent-change').html(`${priceDataJson['Global Quote']['10. change percent']}`);
-  $('#js-high').html(`${priceDataJson['Global Quote']['03. high']}`);
-  $('#js-low').html(`${priceDataJson['Global Quote']['04. low']}`);
+  let lastPrice = (priceDataJson['Global Quote']['05. price']-0).toFixed(2);
+  let prevClose = (priceDataJson['Global Quote']['08. previous close']-0).toFixed(2);
+  let open = (priceDataJson['Global Quote']['02. open']-0).toFixed(2);
+  let percentChange = ((priceDataJson['Global Quote']['09. change']/priceDataJson['Global Quote']['08. previous close'])*100).toFixed(2);
+  let high = (priceDataJson['Global Quote']['03. high']-0).toFixed(2);
+  let range = (priceDataJson['Global Quote']['03. high'] - priceDataJson['Global Quote']['04. low']).toFixed(2);
+  let low = (priceDataJson['Global Quote']['04. low']-0).toFixed(2)
+
+  if (lastPrice < prevClose) {
+    $('#js-last-price').attr('class', 'text-red');
+  } else {
+    $('#js-last-price').attr('class', 'text-green');
+  }
+  
+  stylePriceBorder(priceDataJson);
+  stylePriceColor(priceDataJson);
+
+  $('#js-last-price').html(`${lastPrice}`);
+  $('#js-prev-close').html(`${prevClose}`);
+  $('#js-open').html(`${open}`);
+  $('#js-percent-change').html(`${percentChange}%`);
+  $('#js-high').html(`${high}`);
+  $('#js-low').html(`${low}`);
   $('#js-volume').html(`${formattedVolume}`);
   $('#js-range').html(`${range}`);
 
@@ -102,15 +152,19 @@ function displayPriceData(priceDataJson) {
 
 //display news Headlines (with source and link)
 function displayNewsHeadlines(headlinesJson) {
+  moveSearchBar();
+
+  $('#results').removeClass('hidden');
+  $('footer').removeClass('hidden');
   $('#js-news-results').empty();
   
   for (let i=0; i<headlinesJson.length; i++) {
     $('#js-news-results').append(`
         <div class='article'>  
           <div class='article-details'>
-            <h2 class='headline'>${headlinesJson[i].headline}</h2>
+            <h3 class='headline'>${headlinesJson[i].headline}</h3>
             <p class='news-source'>${headlinesJson[i].source}</p>
-            <a href="${headlinesJson[i].url}" target="_blank" class='go-to-btn'>Read More</a>
+            <a href="${headlinesJson[i].url}" target="_blank" class='read-more-btn'>Read More</a>
           </div>
         </div>`);
   };

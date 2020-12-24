@@ -4,36 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/db775e7459.js" crossorigin="anonymous"></script>
+    
     <title>Stock Ticker API</title>
 </head>
 <body>
 
     <main>
-        
-        <div id="start-screen" class="start-screen" >
-            <a href='' alt='' class='logo'>App Logo</a>
+        <!-- SEARCH FORM -->
+        <div id="form-container" class="form-container" >
+            <h1>mrkt_Monitor</h1>
+            
             <form id="search-form" class="search-form">
-                <div>
-                    <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. AAPL">
-                </div>
-                <div>
+                    <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. tsla">
+            
                     <button type="submit" id="search-btn" class="search-btn">Search</button>
-                </div>
             </form>
         </div>
-
-        <div id="nav-bar" class='nav-bar hidden'>
-            <a href='' alt='' class='logo'>App Logo</a>
-
-            <form id="search-form" class="search-form">
-
-                <input type="text" name="ticker-symbol-search" id="symbol-search" class="symbol-search" require placeholder="ex. AAPL">
-
-                <button type="submit" id="search-btn" class="search-btn">Search</button>
-
-            </form>
-        </div>
-    
     
             <!-- ERROR MESSAGE -->
             <div id='error-message' class='err-message hidden'>
@@ -43,58 +32,55 @@
             <!-- RESULTS -->
             <section id="results" class="results hidden">
                 
-                <!-- COMPANY NAME and TICKER -->
                 <div class='name-box'>
                     <h2 id='company-name' class='company-name'></h2>
                 </div>
 
-                <!-- PRICE & NEWS RESULTS -->
                 <div class='results-group'>
-                    
                     <div id='price-results-wrapper' class='price-results-wrapper'>
                         
                         <div class='last-price'>
                             <h2>Last Price:</h2>
-                            <h2 id='js-last-price'></h2>
+                            <p id='js-last-price'></p>
                         </div>
-                        
+
+                        <div id='price-data-title' class='price-data-title'>
+                            <h4>Yesterday's Price Action</h4>
+                        </div>
+
                         <div class='price-data-group'>
-                            <div class="price-row">
-                                <p class="label">Previous Close:</p>
-                                <p id="js-prev-close" class='price'></p>
+                            <div id="price-row" class="border-gray">
+                                <h3 class="label">Previous Close</h3>
+                                <p id="js-prev-close"></p>
                             </div>
-                        
-                            <div class='price-row'>
-                                <p class = 'label'>Open:</p>
+                            <div id="price-row" class="border-gray">
+                                <h3 class = 'label'>Open</h3>
                                 <p id="js-open"></p>
                             </div>
                         </div>
                 
                         <div class='price-data-group'>
-                            <div class="price-row">
-                                <p class = 'label'>Percent Change</p>
+                            <div id="price-row" class="border-gray">
+                                <h3 class = 'label'>Percent Change</h3>
                                 <p id="js-percent-change"></p>
                             </div>
-                       
-                            <div class='price-row'>
-                                <p class = 'label'>High</p>
+                            <div id="price-row" class="border-gray">
+                                <h3 class = 'label'>High</h3>
                                 <p id="js-high"></p>
                             </div>
-                        
-                            <div class='price-row'>
-                                <p class = 'label'>Low</p>
+                            <div id="price-row" class="border-gray">
+                                <h3 class = 'label'>Low</h3>
                                 <p id="js-low"></p>
                             </div>
                         </div>
                     
                         <div class='price-data-group'>
-                            <div class='price-row'>
-                                <p class = 'label'>Intraday Range</p>
+                            <div id="price-row" class="border-gray">
+                                <h3 class = 'label'>Intraday Range</h3>
                                 <p id="js-range"></p>
                             </div>
-                            
-                            <div class='price-row'>
-                                <p class = 'label'>Volume</p>
+                            <div id="price-row" class="border-gray">
+                                <h3 class = 'label'>Volume</h3>
                                 <p id="js-volume"></p>
                             </div>
                         </div>
@@ -114,8 +100,19 @@
 
     </main>
 
-    <footer>
-        
+    <footer class='hidden'> 
+        <h4>Created by: Brian Wlazlo</h4>
+            <div class='contact-me-icons'></div>
+                <a href="https://twitter.com/BrianWazHere" target="_blank">
+                    <i class="fab fa-3x fa-twitter-square"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/brian-wlazlo-95757a3/" target="_blank">
+                    <i class="fab fa-3x fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/brianwlazlo" target="_blank">
+                    <i class="fab fa-3x fa-github-square"></i>
+                </a>
+            </div>
     </footer>
     
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
