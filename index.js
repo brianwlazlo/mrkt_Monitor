@@ -2,8 +2,8 @@
 
 
 //IEX api: used for company full name and news headlines 
-const iexBaseURL = "https://sandbox.iexapis.com/stable/stock"
-const iexApiTesterToken = "Tpk_0d2324a0af6c4d1d87f32ea3445f31e8"
+const iexBaseURL = "https://cloud.iexapis.com/stable/stock"
+const iexApiToken = "sk_cbb40c4afe044600b77e9998a6997f6e"
 
 
 //Alpha Vantage API: used for OHLC+Vol and Range data
@@ -32,7 +32,7 @@ function getPriceData (ticker) {
 
 // get company Name (IEX API)
 function getCompanyName (ticker) {
-  let companyInfo = `${iexBaseURL}/${ticker}/company?token=${iexApiTesterToken}`;
+  let companyInfo = `${iexBaseURL}/${ticker}/company?token=${iexApiToken}`;
   
   fetch(companyInfo)
     .then(companyInfo => companyInfo.json())
@@ -43,7 +43,7 @@ function getCompanyName (ticker) {
 
 //get recent Headlines (IEX API)
 function getTickerNews (ticker) {
-  let newsURL = `${iexBaseURL}/${ticker}/news/last/8?token=${iexApiTesterToken}`;
+  let newsURL = `${iexBaseURL}/${ticker}/news/last/9?token=${iexApiToken}`;
   console.log(newsURL);
   
   fetch(newsURL)
@@ -117,6 +117,10 @@ function stylePriceColor(priceDataJson) {
 function displayPriceData(priceDataJson) {
   console.log(priceDataJson);
 
+  moveSearchBar();
+  $('#results').removeClass('hidden');
+  $('footer').removeClass('hidden');
+
   let volume = priceDataJson['Global Quote']['06. volume'];
   let formattedVolume = new Intl.NumberFormat().format(volume)
 
@@ -152,10 +156,7 @@ function displayPriceData(priceDataJson) {
 
 //display news Headlines (with source and link)
 function displayNewsHeadlines(headlinesJson) {
-  moveSearchBar();
-
-  $('#results').removeClass('hidden');
-  $('footer').removeClass('hidden');
+  console.log(headlinesJson);
   $('#js-news-results').empty();
   
   for (let i=0; i<headlinesJson.length; i++) {
@@ -163,7 +164,7 @@ function displayNewsHeadlines(headlinesJson) {
         <div class='article'>  
           <div class='article-details'>
             <h3 class='headline'>${headlinesJson[i].headline}</h3>
-            <p class='news-source'>${headlinesJson[i].source}</p>
+            <p class='news-source'>Source:  ${headlinesJson[i].source}</p>
             <a href="${headlinesJson[i].url}" target="_blank" class='read-more-btn'>Read More</a>
           </div>
         </div>`);

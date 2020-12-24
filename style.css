@@ -42,9 +42,10 @@ a {
 }
 
 h3                  {font-size: 14px; }
-.article-details h3 {font-size: 18px; font-weight: lighter;}
-.article-details p  {font-size: 14px;}
+h4                  {font-size: 20px;}
 p                   {font-size: 24px; font-weight: bolder;}
+.article-details h3 {font-size: 18px; line-height: 1.5;}
+.article-details p  {font-size: 14px; font-weight: lighter;}
 .symbol-search      {font-size: 20px;}
 .search-btn         {font-size: 20px; color: rgb(84, 138, 84);}
 
@@ -62,8 +63,11 @@ p                   {font-size: 24px; font-weight: bolder;}
 
 /* ----- Start Screen Styling ---*/
 .form-container {
-  text-align: center;
-  margin-top: 10%;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  
 }
 
 .search-form {
@@ -102,7 +106,6 @@ p                   {font-size: 24px; font-weight: bolder;}
   width: 160px;
   height: 30px;
   margin-right: 15px;
-  
 }
 
 .nav-search-btn {
@@ -137,7 +140,6 @@ p                   {font-size: 24px; font-weight: bolder;}
 
 .last-price {
   margin: 10px 5% 0 5%;
-  justify-content: center;
   text-align: center;
 }
 
@@ -181,9 +183,9 @@ p                   {font-size: 24px; font-weight: bolder;}
   background-color: rgba(68, 64, 141, 0.301);
   align-self: center;
   flex: 1;
-  width: 290px;
+  width: 340px;
   height: 100%;
-  word-break: break-all;
+  word-break: break-word;
   text-align: center;
   padding: 10px 20px 10px 20px;
   display: flex;
@@ -214,11 +216,7 @@ p                   {font-size: 24px; font-weight: bolder;}
 /* --- FOOTER ELEMENTS ----*/
 
 .fab {
-  margin: 5px;
-}
-
-h4 {
-  margin-right: 15px;
+  margin: 10px 5px 10px 5px;
 }
 
 /* ----MEDIA QUERY --------------------------------*/
@@ -248,7 +246,7 @@ h4 {
   }
 
   .price-results-wrapper {
-    border-right: 2px solid rgb(206, 204, 204);
+    border-right: 2px solid rgba(206, 204, 204, 0.473);
     padding-right: 20px;
     flex: 1; 
   } 
@@ -267,18 +265,22 @@ h4 {
   .news-wrapper {
     padding: 10px 0 0 30px;
     flex: 1.5;
+    height: 100%;
   }
 
   .article-details {
-    max-width: 240px;
+    max-width: 300px;
   }
 
   footer {
+    padding: 0 5% 0 5%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
   }
 
-  
+  .contact-me-icons {
+    flex: 1;
+  }
 
 }
