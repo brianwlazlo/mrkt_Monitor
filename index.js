@@ -44,7 +44,6 @@ function getCompanyName (ticker) {
 //get recent Headlines (IEX API)
 function getTickerNews (ticker) {
   let newsURL = `${iexBaseURL}/${ticker}/news/last/9?token=${iexApiToken}`;
-  console.log(newsURL);
   
   fetch(newsURL)
     .then(headlines => headlines.json())
@@ -80,7 +79,7 @@ function moveSearchBar () {
   $('#search-btn').removeClass('symbol-search').addClass('nav-symbol-search');
 }
 
-//display Company Name
+
 function displayCompanyName(companyInfoJson) {
   $('#company-name').html(`${companyInfoJson.companyName} (${companyInfoJson.symbol})`);
 }
@@ -115,8 +114,6 @@ function stylePriceColor(priceDataJson) {
 
 //display Last Price, OHL, Vol, Range
 function displayPriceData(priceDataJson) {
-  console.log(priceDataJson);
-
   moveSearchBar();
   $('#results').removeClass('hidden');
   $('footer').removeClass('hidden');
