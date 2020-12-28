@@ -153,7 +153,6 @@ function displayPriceData(priceDataJson) {
 
 //display news Headlines (with source and link)
 function displayNewsHeadlines(headlinesJson) {
-  console.log(headlinesJson);
   $('#js-news-results').empty();
   
   for (let i=0; i<headlinesJson.length; i++) {
