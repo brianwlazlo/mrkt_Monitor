@@ -79,22 +79,21 @@ function moveSearchBar () {
   $('#search-btn').removeClass('symbol-search').addClass('nav-symbol-search');
 }
 
-
 function displayCompanyName(companyInfoJson) {
   $('#company-name').html(`${companyInfoJson.companyName} (${companyInfoJson.symbol})`);
 }
 
 function stylePriceBorder(priceDataJson) {
   if (priceDataJson['Global Quote']['02. open'] > priceDataJson['Global Quote']['08. previous close']) {
-    $('#js-open').parent().removeClass('border-gray').attr('class', 'border-green');
+    $('#js-open').parent().removeClass('border-gray').attr('class', 'border-green price-row');
     } else {
-      $('#js-open').parent().removeClass('border-gray').attr('class', 'border-red');
+      $('#js-open').parent().removeClass('border-gray').attr('class', 'border-red price row');
   };
 
   if (priceDataJson['Global Quote']['09. change'] < 0) {
-    $('#js-percent-change').parent().removeClass('border-gray').attr('class','border-red');
+    $('#js-percent-change').parent().removeClass('border-gray').attr('class','border-red price-row');
     } else {
-      $('#js-percent-change').parent().removeClass('border-gray').attr('class', 'border-green');
+      $('#js-percent-change').parent().removeClass('border-gray').attr('class', 'border-green price-row');
   };
 }
 
@@ -114,6 +113,7 @@ function stylePriceColor(priceDataJson) {
 
 //display Last Price, OHL, Vol, Range
 function displayPriceData(priceDataJson) {
+
   moveSearchBar();
   $('#results').removeClass('hidden');
   $('footer').removeClass('hidden');

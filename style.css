@@ -55,10 +55,10 @@ p                   {font-size: 24px; font-weight: bolder;}
 
 .hidden       {display: none;}
 .border-red   {border: 3px solid rgb(204, 73, 73);}
-.border-green {border: 3px solid rgb(34, 110, 34);}
+.border-green {border: 3px solid rgb(84, 138, 84);}
 .border-gray  {border: 1px solid gray;}
 .text-red     {color:  rgb(204, 73, 73);}
-.text-green   {color: rgb(46, 148, 46);}
+.text-green   {color: rgb(84, 138, 84);}
 
 
 /* ----- Start Screen Styling ---*/
@@ -154,7 +154,7 @@ p                   {font-size: 24px; font-weight: bolder;}
   flex-direction: row;
 }
 
-#price-row {
+.price-row {
   text-align: center;
   border-radius: 5px;
   margin: 2px;
@@ -258,7 +258,7 @@ p                   {font-size: 24px; font-weight: bolder;}
     padding: 5px 5px 0 5px;
   }
 
-  #price-row {
+  .price-row {
     flex: 1;
   }
 
