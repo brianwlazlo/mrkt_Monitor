@@ -87,7 +87,7 @@ function stylePriceBorder(priceDataJson) {
   if (priceDataJson['Global Quote']['02. open'] > priceDataJson['Global Quote']['08. previous close']) {
     $('#js-open').parent().removeClass('border-gray').attr('class', 'border-green price-row');
     } else {
-      $('#js-open').parent().removeClass('border-gray').attr('class', 'border-red price row');
+      $('#js-open').parent().removeClass('border-gray').attr('class', 'border-red price-row');
   };
 
   if (priceDataJson['Global Quote']['09. change'] < 0) {
